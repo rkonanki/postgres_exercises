@@ -9,7 +9,7 @@ select facid, sum(slots) as "Total Slots"
 		starttime >= '2012-09-01'
 		and starttime < '2012-10-01'
 	group by facid
-order by sum(slots);
+order by "Total Slots";
 |ANSWER|
 <p>This is only a minor alteration of our previous example.  Remember that aggregation happens after the <c>WHERE</c> clause is evaluated: we thus use the <c>WHERE</c> to restrict the data we aggregate over, and our aggregation only sees data from a single month.</p>
 |HINT|
