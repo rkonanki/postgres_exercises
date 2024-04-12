@@ -19,6 +19,7 @@ order by facs.facid;
 <p>Next up is the division.  Those of you familiar with MySQL may be aware that integer divisions are automatically cast to floats.  Postgres is a little more traditional in this respect, and expects you to tell it if you want a floating point division.  You can do that easily in this case by dividing by 2.0 rather than 2.</p>
 
 <p>Finally, let's take a look at formatting.  The <c>TO_CHAR</c> function converts values to character strings.  It takes a formatting string, which we specify as (up to) lots of numbers before the decimal place, decimal place, and two numbers after the decimal place.  The output of this function can be prepended with a space, which is why we include the outer <c>TRIM</c> function.</p>
+<p>Another alternative, probably better to preserve the output as numbers instead of strings is using the round function, which takes as an input a number and optionally the number of decimal places to round the number to. the field expression would look like this: <c>round(bks.slots)/2.0, 2) as "Total Hours"</c></p>
 |HINT|
 Remember that in Postgres, dividing two integers together causes an integer division.  Here you want a floating point division.  For formatting the hours, take a look at the <c>to_char</c> function, remembering to <c>trim</c> any leftover whitespace
 |SORTED|
