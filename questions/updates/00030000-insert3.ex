@@ -10,7 +10,7 @@ insert into cd.facilities
 |ANSWER|
 <p>In the previous exercises we used <c>VALUES</c> to insert constant data into the facilities table. Here, though, we have a new requirement: a dynamically generated ID. This gives us a real quality of life improvement, as we don't have to manually work out what the current largest ID is: the SQL command does it for us.</p>
 
-<p>Since the <c>VALUES</c> clause is only used to supply constant data, we need to replace it with a query instead. The <c>SELECT</c> statement is fairly simple: there's an inner subquery that works out the next facid based on the largest current id, and the rest is just constant data. The output of the statement is a row that we insert into the facilities table.</p>
+<p>Since the <c>VALUES</c> clause is only used to supply constant data, we need to replace it with a query instead. The <c>SELECT</c> statement is fairly simple: there's a computed value that works out the next facid based on the largest current id, and the rest is just constant data. The output of the statement is a row that we insert into the facilities table.</p>
 
 <p>While this works fine in our simple example, it's not how you would generally implement an incrementing ID in the real world. Postgres provides <c>SERIAL</c> types that are auto-filled with the next ID when you insert a row. As well as saving us effort, these types are also safer: unlike the answer given in this exercise, there's no need to worry about concurrent operations generating the same ID.</p>
 |HINT|
