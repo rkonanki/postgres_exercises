@@ -6,7 +6,7 @@ Insert calculated data into a table
 |QUERY|
 insert into cd.facilities
     (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance)
-    select (select max(facid) from cd.facilities)+1, 'Spa', 20, 30, 100000, 800;
+    select max(facid)+1, 'Spa', 20, 30, 100000, 800 from cd.facilities;
 |ANSWER|
 <p>In the previous exercises we used <c>VALUES</c> to insert constant data into the facilities table. Here, though, we have a new requirement: a dynamically generated ID. This gives us a real quality of life improvement, as we don't have to manually work out what the current largest ID is: the SQL command does it for us.</p>
 
